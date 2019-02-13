@@ -8,7 +8,7 @@ def hello():
     if flask.request.method == 'POST':
         if flask.request.args.get("request_for") == "hook":
             return jsonify(flask.request.args.to_dict())
-        return jsonify(flask.request.values.to_dict())
+        return jsonify(flask.request.get_json())
     else:
         return jsonify(flask.request.args.to_dict())
 
